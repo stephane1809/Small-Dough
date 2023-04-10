@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4BD1B90829E4C8CA00E29A43 /* Small_DoughApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1B90729E4C8CA00E29A43 /* Small_DoughApp.swift */; };
+		4BD1B90A29E4C8CA00E29A43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1B90929E4C8CA00E29A43 /* ContentView.swift */; };
+		4BD1B90C29E4C8CC00E29A43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BD1B90B29E4C8CC00E29A43 /* Assets.xcassets */; };
+		4BD1B91029E4C8CC00E29A43 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BD1B90F29E4C8CC00E29A43 /* Preview Assets.xcassets */; };
+		4BD1B91A29E4C8CC00E29A43 /* Small_DoughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1B91929E4C8CC00E29A43 /* Small_DoughTests.swift */; };
+		4BD1B92429E4C8CC00E29A43 /* Small_DoughUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1B92329E4C8CC00E29A43 /* Small_DoughUITests.swift */; };
+		4BD1B92629E4C8CC00E29A43 /* Small_DoughUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1B92529E4C8CC00E29A43 /* Small_DoughUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4BD1B91629E4C8CC00E29A43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BD1B8FC29E4C8CA00E29A43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BD1B90329E4C8CA00E29A43;
+			remoteInfo = "Small Dough";
+		};
+		4BD1B92029E4C8CC00E29A43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BD1B8FC29E4C8CA00E29A43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BD1B90329E4C8CA00E29A43;
+			remoteInfo = "Small Dough";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4BD1B90429E4C8CA00E29A43 /* Small Dough.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Dough.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BD1B90729E4C8CA00E29A43 /* Small_DoughApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_DoughApp.swift; sourceTree = "<group>"; };
+		4BD1B90929E4C8CA00E29A43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4BD1B90B29E4C8CC00E29A43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4BD1B90D29E4C8CC00E29A43 /* Small_Dough.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Small_Dough.entitlements; sourceTree = "<group>"; };
+		4BD1B90F29E4C8CC00E29A43 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4BD1B91529E4C8CC00E29A43 /* Small DoughTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Small DoughTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BD1B91929E4C8CC00E29A43 /* Small_DoughTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_DoughTests.swift; sourceTree = "<group>"; };
+		4BD1B91F29E4C8CC00E29A43 /* Small DoughUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Small DoughUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BD1B92329E4C8CC00E29A43 /* Small_DoughUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_DoughUITests.swift; sourceTree = "<group>"; };
+		4BD1B92529E4C8CC00E29A43 /* Small_DoughUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Small_DoughUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4BD1B90129E4C8CA00E29A43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BD1B91229E4C8CC00E29A43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BD1B91C29E4C8CC00E29A43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BD1B8FB29E4C8CA00E29A43 = {
+			isa = PBXGroup;
+			children = (
+				4BD1B90629E4C8CA00E29A43 /* Small Dough */,
+				4BD1B91829E4C8CC00E29A43 /* Small DoughTests */,
+				4BD1B92229E4C8CC00E29A43 /* Small DoughUITests */,
+				4BD1B90529E4C8CA00E29A43 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4BD1B90529E4C8CA00E29A43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BD1B90429E4C8CA00E29A43 /* Small Dough.app */,
+				4BD1B91529E4C8CC00E29A43 /* Small DoughTests.xctest */,
+				4BD1B91F29E4C8CC00E29A43 /* Small DoughUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BD1B90629E4C8CA00E29A43 /* Small Dough */ = {
+			isa = PBXGroup;
+			children = (
+				4BD1B90729E4C8CA00E29A43 /* Small_DoughApp.swift */,
+				4BD1B90929E4C8CA00E29A43 /* ContentView.swift */,
+				4BD1B90B29E4C8CC00E29A43 /* Assets.xcassets */,
+				4BD1B90D29E4C8CC00E29A43 /* Small_Dough.entitlements */,
+				4BD1B90E29E4C8CC00E29A43 /* Preview Content */,
+			);
+			path = "Small Dough";
+			sourceTree = "<group>";
+		};
+		4BD1B90E29E4C8CC00E29A43 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4BD1B90F29E4C8CC00E29A43 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4BD1B91829E4C8CC00E29A43 /* Small DoughTests */ = {
+			isa = PBXGroup;
+			children = (
+				4BD1B91929E4C8CC00E29A43 /* Small_DoughTests.swift */,
+			);
+			path = "Small DoughTests";
+			sourceTree = "<group>";
+		};
+		4BD1B92229E4C8CC00E29A43 /* Small DoughUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4BD1B92329E4C8CC00E29A43 /* Small_DoughUITests.swift */,
+				4BD1B92529E4C8CC00E29A43 /* Small_DoughUITestsLaunchTests.swift */,
+			);
+			path = "Small DoughUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4BD1B90329E4C8CA00E29A43 /* Small Dough */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BD1B92929E4C8CC00E29A43 /* Build configuration list for PBXNativeTarget "Small Dough" */;
+			buildPhases = (
+				4BD1B90029E4C8CA00E29A43 /* Sources */,
+				4BD1B90129E4C8CA00E29A43 /* Frameworks */,
+				4BD1B90229E4C8CA00E29A43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Small Dough";
+			productName = "Small Dough";
+			productReference = 4BD1B90429E4C8CA00E29A43 /* Small Dough.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4BD1B91429E4C8CC00E29A43 /* Small DoughTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BD1B92C29E4C8CC00E29A43 /* Build configuration list for PBXNativeTarget "Small DoughTests" */;
+			buildPhases = (
+				4BD1B91129E4C8CC00E29A43 /* Sources */,
+				4BD1B91229E4C8CC00E29A43 /* Frameworks */,
+				4BD1B91329E4C8CC00E29A43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4BD1B91729E4C8CC00E29A43 /* PBXTargetDependency */,
+			);
+			name = "Small DoughTests";
+			productName = "Small DoughTests";
+			productReference = 4BD1B91529E4C8CC00E29A43 /* Small DoughTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4BD1B91E29E4C8CC00E29A43 /* Small DoughUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BD1B92F29E4C8CC00E29A43 /* Build configuration list for PBXNativeTarget "Small DoughUITests" */;
+			buildPhases = (
+				4BD1B91B29E4C8CC00E29A43 /* Sources */,
+				4BD1B91C29E4C8CC00E29A43 /* Frameworks */,
+				4BD1B91D29E4C8CC00E29A43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4BD1B92129E4C8CC00E29A43 /* PBXTargetDependency */,
+			);
+			name = "Small DoughUITests";
+			productName = "Small DoughUITests";
+			productReference = 4BD1B91F29E4C8CC00E29A43 /* Small DoughUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4BD1B8FC29E4C8CA00E29A43 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					4BD1B90329E4C8CA00E29A43 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					4BD1B91429E4C8CC00E29A43 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 4BD1B90329E4C8CA00E29A43;
+					};
+					4BD1B91E29E4C8CC00E29A43 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 4BD1B90329E4C8CA00E29A43;
+					};
+				};
+			};
+			buildConfigurationList = 4BD1B8FF29E4C8CA00E29A43 /* Build configuration list for PBXProject "Small Dough" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4BD1B8FB29E4C8CA00E29A43;
+			productRefGroup = 4BD1B90529E4C8CA00E29A43 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4BD1B90329E4C8CA00E29A43 /* Small Dough */,
+				4BD1B91429E4C8CC00E29A43 /* Small DoughTests */,
+				4BD1B91E29E4C8CC00E29A43 /* Small DoughUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4BD1B90229E4C8CA00E29A43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BD1B91029E4C8CC00E29A43 /* Preview Assets.xcassets in Resources */,
+				4BD1B90C29E4C8CC00E29A43 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BD1B91329E4C8CC00E29A43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BD1B91D29E4C8CC00E29A43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4BD1B90029E4C8CA00E29A43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BD1B90A29E4C8CA00E29A43 /* ContentView.swift in Sources */,
+				4BD1B90829E4C8CA00E29A43 /* Small_DoughApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BD1B91129E4C8CC00E29A43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BD1B91A29E4C8CC00E29A43 /* Small_DoughTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BD1B91B29E4C8CC00E29A43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BD1B92629E4C8CC00E29A43 /* Small_DoughUITestsLaunchTests.swift in Sources */,
+				4BD1B92429E4C8CC00E29A43 /* Small_DoughUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4BD1B91729E4C8CC00E29A43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BD1B90329E4C8CA00E29A43 /* Small Dough */;
+			targetProxy = 4BD1B91629E4C8CC00E29A43 /* PBXContainerItemProxy */;
+		};
+		4BD1B92129E4C8CC00E29A43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BD1B90329E4C8CA00E29A43 /* Small Dough */;
+			targetProxy = 4BD1B92029E4C8CC00E29A43 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4BD1B92729E4C8CC00E29A43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4BD1B92829E4C8CC00E29A43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4BD1B92A29E4C8CC00E29A43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Small Dough/Small_Dough.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Small Dough/Preview Content\"";
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.Small-Dough";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BD1B92B29E4C8CC00E29A43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Small Dough/Small_Dough.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Small Dough/Preview Content\"";
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.Small-Dough";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4BD1B92D29E4C8CC00E29A43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.Small-DoughTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Small Dough.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Small Dough";
+			};
+			name = Debug;
+		};
+		4BD1B92E29E4C8CC00E29A43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.Small-DoughTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Small Dough.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Small Dough";
+			};
+			name = Release;
+		};
+		4BD1B93029E4C8CC00E29A43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.Small-DoughUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Small Dough";
+			};
+			name = Debug;
+		};
+		4BD1B93129E4C8CC00E29A43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.Small-DoughUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Small Dough";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BD1B8FF29E4C8CA00E29A43 /* Build configuration list for PBXProject "Small Dough" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BD1B92729E4C8CC00E29A43 /* Debug */,
+				4BD1B92829E4C8CC00E29A43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BD1B92929E4C8CC00E29A43 /* Build configuration list for PBXNativeTarget "Small Dough" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BD1B92A29E4C8CC00E29A43 /* Debug */,
+				4BD1B92B29E4C8CC00E29A43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BD1B92C29E4C8CC00E29A43 /* Build configuration list for PBXNativeTarget "Small DoughTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BD1B92D29E4C8CC00E29A43 /* Debug */,
+				4BD1B92E29E4C8CC00E29A43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BD1B92F29E4C8CC00E29A43 /* Build configuration list for PBXNativeTarget "Small DoughUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BD1B93029E4C8CC00E29A43 /* Debug */,
+				4BD1B93129E4C8CC00E29A43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4BD1B8FC29E4C8CA00E29A43 /* Project object */;
+}
