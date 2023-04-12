@@ -1,12 +1,13 @@
 import SwiftUI
+import SpriteKit
 
 struct ContentView: View {
+
+    @State var scene: GameScene = .makeFullscreenScene()
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            SpriteView(scene: scene)
         }
     }
 }
