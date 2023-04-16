@@ -11,11 +11,13 @@ import SpriteKit
 class GameScene: SKScene, ObservableObject {
 
     var gameModel = GameModel.shared
+    @Published var multiply = SKSpriteNode()
+    @Published var divide = SKSpriteNode()
 
     override func didMove(to view: SKView) {
         creatMassa(posicao: CGPoint(x: frame.midX, y: frame.midY))
-        creatButtonMultiplie()
-        creatButtonDivide()
+        creatButtonMultiplie(imageNamed: "multiply")
+        creatButtonDivide(imageNamed: "divide")
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -25,11 +27,16 @@ class GameScene: SKScene, ObservableObject {
             var touchedNode = self.atPoint(location)
 
             if touchedNode.name == "multiply" {
-                gameModel.division = false
+                if gameModel.division == true {
+                    gameModel.division = false
+                    creatButtonDivide(imageNamed: "divide")
+                }
+
+
 
                 if gameModel.multiplication == true {
                     touchedNode.removeFromParent()
-                    creatButtonMultiplie()
+                    creatButtonMultiplie(imageNamed: "multiply")
                     gameModel.multiplication.toggle()
                     print("o multiplicar tava ativado")
                 } else if gameModel.multiplication == false {
@@ -41,11 +48,14 @@ class GameScene: SKScene, ObservableObject {
             }
 
             if touchedNode.name == "divide" {
-                gameModel.multiplication = false
+                if gameModel.multiplication == true {
+                    gameModel.multiplication = false
+                    creatButtonMultiplie(imageNamed: "multiply")
+                }
 
                 if gameModel.division == true {
                     touchedNode.removeFromParent()
-                    creatButtonDivide()
+                    creatButtonDivide(imageNamed: "divide")
                     gameModel.division.toggle()
                     print("o divisor tava ativado")
                 } else if gameModel.division == false {
@@ -110,42 +120,42 @@ class GameScene: SKScene, ObservableObject {
         self.addChild(massa)
     }
 
-    func creatButtonMultiplie() {
-        let multiplie = SKSpriteNode(imageNamed: "multiply")
+    func creatButtonMultiplie(imageNamed: String) {
+         multiply = SKSpriteNode(imageNamed: imageNamed)
 
-        multiplie.name = "multiply"
-        multiplie.position = CGPoint(x: frame.midX + 200, y: frame.midY - 200)
+        multiply.name = "multiply"
+        multiply.position = CGPoint(x: frame.midX + 200, y: frame.midY - 200)
 
-        self.addChild(multiplie)
+        self.addChild(multiply)
     }
 
-    func creatButtonDivide() {
-        let multiplie = SKSpriteNode(imageNamed: "divide")
+    func creatButtonDivide(imageNamed: String) {
+        divide = SKSpriteNode(imageNamed: imageNamed)
 
-        multiplie.name = "divide"
-        multiplie.position = CGPoint(x: frame.midX - 200, y: frame.midY - 200)
+        divide.name = "divide"
+        divide.position = CGPoint(x: frame.midX - 200, y: frame.midY - 200)
 
-        self.addChild(multiplie)
+        self.addChild(divide)
     }
 
     func creatMultiplyPress(posicao: CGPoint) {
-        var multiplie = SKSpriteNode(imageNamed: "multiplyPress")
+        multiply = SKSpriteNode(imageNamed: "multiplyPress")
 
-        multiplie.name = "multiply"
-        multiplie.position = posicao
+        multiply.name = "multiply"
+        multiply.position = posicao
         gameModel.buttonPress.toggle()
 
-        self.addChild(multiplie)
+        self.addChild(multiply)
         print("entrou no creat")
     }
 
     func creatDividePress(posicao: CGPoint) {
-        let multiplie = SKSpriteNode(imageNamed: "dividePress")
+        divide = SKSpriteNode(imageNamed: "dividePress")
 
-        multiplie.name = "divide"
-        multiplie.position = posicao
+        divide.name = "divide"
+        divide.position = posicao
         gameModel.buttonPress.toggle()
 
-        self.addChild(multiplie)
+        self.addChild(divide)
     }
 }
