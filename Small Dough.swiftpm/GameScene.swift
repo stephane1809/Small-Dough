@@ -11,11 +11,13 @@ import SpriteKit
 class GameScene: SKScene, ObservableObject {
 
     var gameModel = GameModel.shared
+    @Published var multiply = SKSpriteNode()
+    @Published var divide = SKSpriteNode()
 
     override func didMove(to view: SKView) {
-        creatMassa(posicao: CGPoint(x: frame.midX, y: frame.midY))
-        creatButtonMultiplie()
-        creatButtonDivide()
+        creatMassa(posicao: CGPoint(x: frame.midX, y: frame.midY), imageNamed: "massa")
+        creatButtonMultiplie(imageNamed: "multiply")
+        creatButtonDivide(imageNamed: "divide")
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -25,53 +27,59 @@ class GameScene: SKScene, ObservableObject {
             var touchedNode = self.atPoint(location)
 
             if touchedNode.name == "multiply" {
-                gameModel.division = false
+                if gameModel.division == true {
+                    gameModel.division = false
+                    creatButtonDivide(imageNamed: "divide")
+                }
 
                 if gameModel.multiplication == true {
                     touchedNode.removeFromParent()
-                    creatButtonMultiplie()
+                    creatButtonMultiplie(imageNamed: "multiply")
                     gameModel.multiplication.toggle()
-                    print("o multiplicar tava ativado")
+                    print("multiplicar desativado")
                 } else if gameModel.multiplication == false {
                     touchedNode.removeFromParent()
-                    creatMultiplyPress(posicao: CGPoint(x: frame.midX + 200, y: frame.midY - 200))
+                    creatButtonMultiplie(imageNamed: "multiplyPress")
                     gameModel.multiplication.toggle()
-                    print("o multiplicar NÃO tava ativado")
+                    print("multiplicar ativado")
                 }
             }
 
             if touchedNode.name == "divide" {
-                gameModel.multiplication = false
+                if gameModel.multiplication == true {
+                    gameModel.multiplication = false
+                    creatButtonMultiplie(imageNamed: "multiply")
+                }
 
                 if gameModel.division == true {
                     touchedNode.removeFromParent()
-                    creatButtonDivide()
+                    creatButtonDivide(imageNamed: "divide")
                     gameModel.division.toggle()
-                    print("o divisor tava ativado")
+                    print("divisor desativado")
                 } else if gameModel.division == false {
                     touchedNode.removeFromParent()
-                    creatDividePress(posicao: CGPoint(x: frame.midX - 200, y: frame.midY - 200))
+                    creatButtonDivide(imageNamed: "dividePress")
                     gameModel.division.toggle()
-                    print("o divisor NÃO tava ativado")
+                    print("divisor ativado")
                 }
 
             }
 
-            if touchedNode.name == "massa" && gameModel.division == true && gameModel.multiplication == false{
+            if touchedNode.name == "massa" && gameModel.division == true {
 
                 touchedNode.removeFromParent()
 
-                creatDividedMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y))
+                creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y), imageNamed: "massa2")
 
-                creatDividedMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y + 200))
+                creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y + 200), imageNamed: "massa2")
                 print("dividiu")
             }
 
-            if touchedNode.name == "massa" && gameModel.multiplication == true && gameModel.division == false{
+            if touchedNode.name == "massa" && gameModel.multiplication == true{
 
                 creatMassa(posicao: CGPoint(
                     x: touchedNode.position.x,
-                    y: touchedNode.position.y + 200))
+                    y: touchedNode.position.y + 200), imageNamed: "massa")
 
                 print("multiplicou")
             }
@@ -90,8 +98,8 @@ class GameScene: SKScene, ObservableObject {
         return scene
     }
 
-    func creatMassa(posicao: CGPoint) {
-        let massa = SKSpriteNode(imageNamed: "massa")
+    func creatMassa(posicao: CGPoint, imageNamed: String) {
+        let massa = SKSpriteNode(imageNamed: imageNamed)
 
         massa.position = posicao
 
@@ -100,52 +108,22 @@ class GameScene: SKScene, ObservableObject {
         self.addChild(massa)
     }
 
-    func creatDividedMassa(posicao: CGPoint) {
-        let massa = SKSpriteNode(imageNamed: "massa2")
 
-        massa.position = posicao
+    func creatButtonMultiplie(imageNamed: String) {
+         multiply = SKSpriteNode(imageNamed: imageNamed)
 
-        massa.name = "massa"
+        multiply.name = "multiply"
+        multiply.position = CGPoint(x: frame.midX + 200, y: frame.midY - 200)
 
-        self.addChild(massa)
+        self.addChild(multiply)
     }
 
-    func creatButtonMultiplie() {
-        let multiplie = SKSpriteNode(imageNamed: "multiply")
+    func creatButtonDivide(imageNamed: String) {
+        divide = SKSpriteNode(imageNamed: imageNamed)
 
-        multiplie.name = "multiply"
-        multiplie.position = CGPoint(x: frame.midX + 200, y: frame.midY - 200)
+        divide.name = "divide"
+        divide.position = CGPoint(x: frame.midX - 200, y: frame.midY - 200)
 
-        self.addChild(multiplie)
-    }
-
-    func creatButtonDivide() {
-        let multiplie = SKSpriteNode(imageNamed: "divide")
-
-        multiplie.name = "divide"
-        multiplie.position = CGPoint(x: frame.midX - 200, y: frame.midY - 200)
-
-        self.addChild(multiplie)
-    }
-
-    func creatMultiplyPress(posicao: CGPoint) {
-        var multiplie = SKSpriteNode(imageNamed: "multiplyPress")
-
-        multiplie.name = "multiply"
-        multiplie.position = posicao
-        gameModel.buttonPress.toggle()
-
-        self.addChild(multiplie)
-        print("entrou no creat")
-    }
-
-    func creatDividePress(posicao: CGPoint) {
-        let multiplie = SKSpriteNode(imageNamed: "dividePress")
-
-        multiplie.name = "divide"
-        multiplie.position = posicao
-        gameModel.buttonPress.toggle()
-
-        self.addChild(multiplie)
+        self.addChild(divide)
     }
 }
