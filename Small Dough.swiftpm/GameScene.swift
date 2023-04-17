@@ -11,6 +11,7 @@ import SpriteKit
 class GameScene: SKScene, ObservableObject {
     
     var pieceMoved: SKSpriteNode?
+    var number: Int = 8
 
     var gameModel = GameModel.shared
     @Published var multiply = SKSpriteNode()
@@ -131,7 +132,7 @@ class GameScene: SKScene, ObservableObject {
         massa.name = "massa"
 
         let scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
-        scoreLabel.text = "10"
+        scoreLabel.text = String(number)
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabel.position = CGPoint(x: 0, y: 0)
         scoreLabel.fontColor = UIColor.black
