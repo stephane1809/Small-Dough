@@ -9,6 +9,8 @@ import Foundation
 import SpriteKit
 
 class GameScene: SKScene, ObservableObject {
+    
+    var pieceMoved: SKSpriteNode?
 
     var gameModel = GameModel.shared
     @Published var multiply = SKSpriteNode()
@@ -20,11 +22,32 @@ class GameScene: SKScene, ObservableObject {
         creatButtonDivide(imageNamed: "divide")
     }
 
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
+        if let piece = pieceMoved {
+                    let touch = touches.first!
+                    let location = touch.location(in: self)
+                    piece.position = location
+                }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
+        pieceMoved = nil
+    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        let location1 = touches.first!.location(in: self)
+        let node = nodes(at: location1).first
+
+        if let piece = node as? SKSpriteNode {
+                    pieceMoved = piece
+                }
+
         for touch in touches {
             let location = touch.location(in: self)
 
             var touchedNode = self.atPoint(location)
+
 
             if touchedNode.name == "multiply" {
                 if gameModel.division == true {
