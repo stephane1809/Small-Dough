@@ -38,7 +38,7 @@ class GameScene: SKScene, ObservableObject {
             let touchedNode = self.atPoint(location)
 
             guard let node = touchedNode as? InformationNode else {
-                print("TOQUE")
+
                 if touchedNode.name == "multiply" {
                     if gameModel.division == true {
                         gameModel.division = false
@@ -49,12 +49,12 @@ class GameScene: SKScene, ObservableObject {
                         touchedNode.removeFromParent()
                         creatButtonMultiplie(imageNamed: "multiply")
                         gameModel.multiplication.toggle()
-                        print("multiplicar desativado")
+
                     } else if gameModel.multiplication == false {
                         touchedNode.removeFromParent()
                         creatButtonMultiplie(imageNamed: "multiplyPress")
                         gameModel.multiplication.toggle()
-                        print("multiplicar ativado")
+
                     }
                 }
 
@@ -68,12 +68,12 @@ class GameScene: SKScene, ObservableObject {
                         touchedNode.removeFromParent()
                         creatButtonDivide(imageNamed: "divide")
                         gameModel.division.toggle()
-                        print("divisor desativado")
+
                     } else if gameModel.division == false {
                         touchedNode.removeFromParent()
                         creatButtonDivide(imageNamed: "dividePress")
                         gameModel.division.toggle()
-                        print("divisor ativado")
+
                     }
 
                 }
@@ -83,7 +83,6 @@ class GameScene: SKScene, ObservableObject {
 
             if touchedNode.name == "massa" && gameModel.division == true {
                 node.num = node.num/2
-                print(node.num)
 
                 touchedNode.removeFromParent()
 
@@ -91,7 +90,6 @@ class GameScene: SKScene, ObservableObject {
 
                 creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y + 200), imageNamed: "massa2", num: node.num)
 
-                print("dividiu")
             }
 
             if touchedNode.name == "massa" && gameModel.multiplication == true{
@@ -99,8 +97,6 @@ class GameScene: SKScene, ObservableObject {
                 creatMassa(posicao: CGPoint(
                     x: touchedNode.position.x,
                     y: touchedNode.position.y + 200), imageNamed: "massa", num: node.num)
-
-                print("multiplicou")
             }
 
         }
