@@ -9,7 +9,6 @@ import Foundation
 import SpriteKit
 
 class GameScene: SKScene, ObservableObject {
-//    var number: Int = 8
     var pieceMoved: SKSpriteNode?
     var informationNode = InformationNode()
 
@@ -27,18 +26,18 @@ class GameScene: SKScene, ObservableObject {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
         let location = touches.first!.location(in: self)
-        let node = nodes(at: location).first
+        let nodes = nodes(at: location).first
 
-        if let piece = node as? SKSpriteNode {
+        if let piece = nodes as? SKSpriteNode {
                     pieceMoved = piece
                 }
 
         for touch in touches {
             let location = touch.location(in: self)
 
-            var touchedNode = self.atPoint(location)
+            let touchedNode = self.atPoint(location)
 
-            guard let node1 = touchedNode as? InformationNode else {
+            guard let node = touchedNode as? InformationNode else {
                 print("TOQUE")
                 if touchedNode.name == "multiply" {
                     if gameModel.division == true {
@@ -83,19 +82,14 @@ class GameScene: SKScene, ObservableObject {
 
 
             if touchedNode.name == "massa" && gameModel.division == true {
-                var nume = node1.num
-                print(nume)
-                nume = nume/2
-                node1.num = nume
-                print(node1.num)
-//                node1.num = node1.num / 2
-//                var num = touchedNode.action(forKey: "massa")
-//                touchedNode.num = touchedNode.num/2
+                node.num = node.num/2
+                print(node.num)
+
                 touchedNode.removeFromParent()
 
-                creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y), imageNamed: "massa2", num: nume)
+                creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y), imageNamed: "massa2", num: node.num)
 
-                creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y + 200), imageNamed: "massa2", num: nume)
+                creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y + 200), imageNamed: "massa2", num: node.num)
 
                 print("dividiu")
             }
@@ -104,7 +98,7 @@ class GameScene: SKScene, ObservableObject {
 
                 creatMassa(posicao: CGPoint(
                     x: touchedNode.position.x,
-                    y: touchedNode.position.y + 200), imageNamed: "massa", num: node1.num)
+                    y: touchedNode.position.y + 200), imageNamed: "massa", num: node.num)
 
                 print("multiplicou")
             }
@@ -142,7 +136,6 @@ class GameScene: SKScene, ObservableObject {
         massa.num = num
 
         massa.position = posicao
-//        massa.setValue(number, forKey: "massa")
         massa.name = "massa"
 
         let scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
