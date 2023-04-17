@@ -22,18 +22,6 @@ class GameScene: SKScene, ObservableObject {
         creatButtonDivide(imageNamed: "divide")
     }
 
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
-        if let piece = pieceMoved {
-                    let touch = touches.first!
-                    let location = touch.location(in: self)
-                    piece.position = location
-                }
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
-        pieceMoved = nil
-    }
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
         let location1 = touches.first!.location(in: self)
@@ -109,6 +97,20 @@ class GameScene: SKScene, ObservableObject {
 
         }
     }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
+        if let piece = pieceMoved {
+                    let touch = touches.first!
+                    let location = touch.location(in: self)
+                    piece.position = location
+                }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
+        pieceMoved = nil
+    }
+
+
 
     static func makeFullscreenScene() -> GameScene {
         let scene = GameScene()
