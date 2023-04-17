@@ -130,6 +130,14 @@ class GameScene: SKScene, ObservableObject {
 
         massa.name = "massa"
 
+        let scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.text = "10"
+        scoreLabel.horizontalAlignmentMode = .right
+        scoreLabel.position = CGPoint(x: 0, y: 0)
+        scoreLabel.fontColor = UIColor.black
+
+        massa.addChild(scoreLabel)
+
         self.addChild(massa)
     }
 
