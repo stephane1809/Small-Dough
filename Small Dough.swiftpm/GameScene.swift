@@ -171,13 +171,9 @@ class GameScene: SKScene, ObservableObject {
                     y: touchedNode.position.y), imageNamed: "massa", num: node.num)
             }
 
-            if node.num == 7{
-                touchedNode.removeFromParent()
-                creatMassa(posicao: CGPoint(
-                    x: touchedNode.position.x,
-                    y: touchedNode.position.y), imageNamed: "pao", num: 0)
+            if node.num == 7 {
+                creatPao(posicao: touchedNode.position, imageNamed: "pao")
             }
-
 
         }
     }
@@ -241,6 +237,18 @@ class GameScene: SKScene, ObservableObject {
         self.addChild(massa)
 
     }
+
+    func creatPao(posicao: CGPoint, imageNamed: String) {
+
+        let pao = InformationNode(imageNamed: imageNamed)
+
+        pao.position = posicao
+        pao.name = "pao"
+
+        self.addChild(pao)
+
+    }
+
 
 
     func creatButtonMultiplie(imageNamed: String) {
