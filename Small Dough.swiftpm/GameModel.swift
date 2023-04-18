@@ -21,6 +21,7 @@ class GameModel: ObservableObject {
     @Published var sum: Bool = false
     @Published var subtract: Bool = false
     @Published var buttonPress: Bool = false
+    @Published var gameWin: Bool = false
 
     static let shared = GameModel()
 }
