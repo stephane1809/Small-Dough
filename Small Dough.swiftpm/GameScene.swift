@@ -10,17 +10,15 @@ import SpriteKit
 
 class GameScene: SKScene, ObservableObject {
     var pieceMoved: SKSpriteNode?
-    var informationNode = InformationNode()
-
-
+    var informationNode: InformationNode?
     var gameModel = GameModel.shared
-    @Published var multiply = SKSpriteNode()
-    @Published var divide = SKSpriteNode()
 
     override func didMove(to view: SKView) {
-        creatMassa(posicao: CGPoint(x: frame.midX, y: frame.midY), imageNamed: "massa", num: informationNode.num)
+        creatMassa(posicao: CGPoint(x: frame.midX, y: frame.midY), imageNamed: "massa", num: 8)
         creatButtonMultiplie(imageNamed: "multiply")
         creatButtonDivide(imageNamed: "divide")
+        creatButtonSoma(imageNamed: "sum")
+        creatButtonSubtract(imageNamed: "subtract")
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -40,9 +38,13 @@ class GameScene: SKScene, ObservableObject {
             guard let node = touchedNode as? InformationNode else {
 
                 if touchedNode.name == "multiply" {
-                    if gameModel.division == true {
+                    if gameModel.division == true || gameModel.sum == true || gameModel.subtract == true{
                         gameModel.division = false
+                        gameModel.sum = false
+                        gameModel.subtract = false
                         creatButtonDivide(imageNamed: "divide")
+                        creatButtonSoma(imageNamed: "sum")
+                        creatButtonSubtract(imageNamed: "subtract")
                     }
 
                     if gameModel.multiplication == true {
@@ -59,9 +61,13 @@ class GameScene: SKScene, ObservableObject {
                 }
 
                 if touchedNode.name == "divide" {
-                    if gameModel.multiplication == true {
+                    if gameModel.multiplication == true || gameModel.sum == true || gameModel.subtract == true{
                         gameModel.multiplication = false
+                        gameModel.sum = false
+                        gameModel.subtract = false
                         creatButtonMultiplie(imageNamed: "multiply")
+                        creatButtonSoma(imageNamed: "sum")
+                        creatButtonSubtract(imageNamed: "subtract")
                     }
 
                     if gameModel.division == true {
@@ -73,6 +79,54 @@ class GameScene: SKScene, ObservableObject {
                         touchedNode.removeFromParent()
                         creatButtonDivide(imageNamed: "dividePress")
                         gameModel.division.toggle()
+
+                    }
+
+                }
+
+                if touchedNode.name == "sum" {
+                    if gameModel.multiplication == true || gameModel.division == true || gameModel.subtract == true{
+                        gameModel.division = false
+                        gameModel.multiplication = false
+                        gameModel.subtract = false
+                        creatButtonMultiplie(imageNamed: "multiply")
+                        creatButtonSubtract(imageNamed: "subtract")
+                        creatButtonDivide(imageNamed: "divide")
+                    }
+
+                    if gameModel.sum == true {
+                        touchedNode.removeFromParent()
+                        creatButtonSoma(imageNamed: "sum")
+                        gameModel.sum.toggle()
+
+                    } else if gameModel.sum == false {
+                        touchedNode.removeFromParent()
+                        creatButtonSoma(imageNamed: "sumPress")
+                        gameModel.sum.toggle()
+
+                    }
+
+                }
+
+                if touchedNode.name == "subtract" {
+                    if gameModel.multiplication == true || gameModel.sum == true || gameModel.division == true{
+                        gameModel.division = false
+                        gameModel.multiplication = false
+                        gameModel.sum = false
+                        creatButtonMultiplie(imageNamed: "multiply")
+                        creatButtonSoma(imageNamed: "sum")
+                        creatButtonDivide(imageNamed: "divide")
+                    }
+
+                    if gameModel.subtract == true {
+                        touchedNode.removeFromParent()
+                        creatButtonSubtract(imageNamed: "subtract")
+                        gameModel.subtract.toggle()
+
+                    } else if gameModel.subtract == false {
+                        touchedNode.removeFromParent()
+                        creatButtonSubtract(imageNamed: "subtractPress")
+                        gameModel.subtract.toggle()
 
                     }
 
@@ -99,6 +153,32 @@ class GameScene: SKScene, ObservableObject {
                     y: touchedNode.position.y + 200), imageNamed: "massa", num: node.num)
             }
 
+            if touchedNode.name == "massa" && gameModel.sum == true{
+                node.num = node.num + 1
+                node.removeFromParent()
+
+                creatMassa(posicao: CGPoint(
+                    x: touchedNode.position.x,
+                    y: touchedNode.position.y), imageNamed: "massa", num: node.num)
+            }
+
+            if touchedNode.name == "massa" && gameModel.subtract == true{
+                node.num = node.num - 1
+                node.removeFromParent()
+
+                creatMassa(posicao: CGPoint(
+                    x: touchedNode.position.x,
+                    y: touchedNode.position.y), imageNamed: "massa", num: node.num)
+            }
+
+            if node.num == 7{
+                touchedNode.removeFromParent()
+                creatMassa(posicao: CGPoint(
+                    x: touchedNode.position.x,
+                    y: touchedNode.position.y), imageNamed: "pao", num: 0)
+            }
+
+
         }
     }
 
@@ -111,10 +191,25 @@ class GameScene: SKScene, ObservableObject {
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
+        if let piece = pieceMoved as? InformationNode{
+
+            let otherChildren = children.filter({ $0 != piece})
+            let massList = otherChildren.compactMap{ $0 as? InformationNode }
+
+            if gameModel.division == true || gameModel.sum == true || gameModel.subtract == true || gameModel.multiplication == true{
+                print("nao entrou")
+            } else if let massa = massList.first(where: { $0.contactFrame.intersects(piece.contactFrame) }) {
+                massa.removeFromParent()
+                piece.removeFromParent()
+                creatMassa(posicao: massa.position, imageNamed: "massa", num: massa.num + piece.num)
+                print(massa.num)
+                print(massa.num)
+//                print("massa proxima", massa)
+            }
+
+        }
         pieceMoved = nil
     }
-
-
 
     static func makeFullscreenScene() -> GameScene {
         let scene = GameScene()
@@ -128,7 +223,9 @@ class GameScene: SKScene, ObservableObject {
     }
 
     func creatMassa(posicao: CGPoint, imageNamed: String, num: Int) {
+
         let massa = InformationNode(imageNamed: imageNamed)
+
         massa.num = num
 
         massa.position = posicao
@@ -139,28 +236,46 @@ class GameScene: SKScene, ObservableObject {
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabel.position = CGPoint(x: 0, y: 0)
         scoreLabel.fontColor = UIColor.black
-
         massa.addChild(scoreLabel)
 
         self.addChild(massa)
+
     }
 
 
     func creatButtonMultiplie(imageNamed: String) {
-         multiply = SKSpriteNode(imageNamed: imageNamed)
+        let multiply = SKSpriteNode(imageNamed: imageNamed)
 
         multiply.name = "multiply"
-        multiply.position = CGPoint(x: frame.midX + 200, y: frame.midY - 200)
+        multiply.position = CGPoint(x: frame.midX - 400, y: frame.midY - 380)
 
         self.addChild(multiply)
     }
 
     func creatButtonDivide(imageNamed: String) {
-        divide = SKSpriteNode(imageNamed: imageNamed)
+        let divide = SKSpriteNode(imageNamed: imageNamed)
 
         divide.name = "divide"
-        divide.position = CGPoint(x: frame.midX - 200, y: frame.midY - 200)
+        divide.position = CGPoint(x: frame.midX - 135, y: frame.midY - 380)
 
         self.addChild(divide)
+    }
+
+    func creatButtonSoma(imageNamed: String) {
+        let sum = SKSpriteNode(imageNamed: imageNamed)
+
+        sum.name = "sum"
+        sum.position = CGPoint(x: frame.midX + 135, y: frame.midY - 380)
+
+        self.addChild(sum)
+    }
+
+    func creatButtonSubtract(imageNamed: String) {
+        let subtract = SKSpriteNode(imageNamed: imageNamed)
+
+        subtract.name = "subtract"
+        subtract.position = CGPoint(x: frame.midX + 400, y: frame.midY - 380)
+
+        self.addChild(subtract)
     }
 }
