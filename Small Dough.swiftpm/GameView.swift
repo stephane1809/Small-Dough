@@ -38,7 +38,7 @@ struct GameView: View {
                         .foregroundColor(.black)
                         .font(.custom("Chalkduster", size: 40))
                 } else{
-                    Text(gameModel.textNo)
+                    Text( "\(gameModel.textNo) \(gameModel.valueCorrect)")
                         .foregroundColor(.black)
                         .font(.custom("Chalkduster", size: 40))
                 }

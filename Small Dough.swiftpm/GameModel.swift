@@ -22,11 +22,11 @@ class GameModel: ObservableObject {
     @Published var subtract: Bool = false
     @Published var buttonPress: Bool = false
     @Published var gameWin: Bool = false
-    @Published var valueCorrect: Int = 7
+    @Published var valueCorrect: Int = 23
     @Published var win: Bool = false
     @Published var textWin: String = """
 Congratulations!!
-Tap BACK for a new challenge 23
+Tap BACK for a new challenge
 """
     @Published var textNo: String = """
 Hello earthling!
