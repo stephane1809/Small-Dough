@@ -24,11 +24,10 @@ class InitialScene: SKScene {
         let node = SKSpriteNode(texture: textures[0])
         node.position.x = self.size.width/2
         node.position.y = self.size.height/3
-        node.scale(to: CGSize(width: 500, height: 500))
+        node.scale(to: CGSize(width: 650, height: 650))
 
         let node2 = SKSpriteNode(imageNamed: "chapeu")
-        node2.position.x = self.size.width/400
-        node2.position.y = self.size.height/5.15
+        node2.position = CGPoint(x: 0, y: 270)
         node2.scale(to: CGSize(width: 350, height: 350))
 
         self.addChild(node)

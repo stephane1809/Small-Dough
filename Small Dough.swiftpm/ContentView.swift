@@ -6,33 +6,32 @@ struct ContentView: View {
     @State var scene: InitialScene = .makeFullscreenScene()
 
     var body: some View {
-        NavigationView{
-            VStack(alignment: .center, spacing: 20) {
 
+        NavigationView{
+            VStack(alignment: .center, spacing: 10) {
                 Text("""
+My name is Doo,
 Welcome to my bakery Alien Dough!
 
-My name is Doo,
 Let's make delicious breads human?
 """)
-                    .font(.custom("Chalkduster", size: 40))
-                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+                    .font(.custom("Chalkduster", size: 35))
 
 
                 SpriteView(scene: scene)
-                    .frame(height: 500)
+                    .body.frame(width: 600, height: 600)
 
                 .font(.custom("Chalkduster", size: 40))
 
                 NavigationLink(destination: GameView(), label: {
                     ZStack {
                                      Rectangle()
-                                         .frame(width: 200, height: 50)
+                                         .frame(width: 400, height: 100)
                                          .foregroundColor(.green)
                                          .cornerRadius(10)
                                      Text("Get Started")
                             .foregroundColor(.black)
-                            .font(.custom("Chalkduster", size: 20))
+                            .font(.custom("Chalkduster", size: 40))
                             .font(.body)
                                  }
                 })
@@ -40,5 +39,6 @@ Let's make delicious breads human?
 
             }
         }.navigationViewStyle(.stack)
+            .navigationBarBackButtonHidden()
     }
 }

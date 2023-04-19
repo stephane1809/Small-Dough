@@ -9,23 +9,52 @@ import SwiftUI
 import SpriteKit
 
 struct GameView: View {
-    var gameModel = GameModel.shared
-    @State var scene: GameScene = .makeFullscreenScene()
+
+    @StateObject var gameModel = GameModel()
+
+    @StateObject var scene = GameScene()
 
     var body: some View {
+
         NavigationView {
-            VStack {
-                Text("""
-                Hello earthling! We need a dough of value \(String(gameModel.valueCorrect))
-                """ )
-    //                .font(.largeTitle)
-    //                .fontWeight(.heavy)
-                    .foregroundColor(.black)
-                    .font(.custom("Chalkduster", size: 40))
+            VStack{
+                HStack{
+                    NavigationLink(destination: ContentView(), label: { ZStack {
+                        Rectangle()
+                            .frame(width: 60, height: 40)
+                            .foregroundColor(.green)
+                            .cornerRadius(10)
+                        Text("Back")
+                            .foregroundColor(.black)
+                    }
+    })
+
+                    Spacer()
+                }.padding(.horizontal, 30)
+                    .padding(.top, 30)
+
+                if gameModel.win == true {
+                    Text(gameModel.textWin)
+                        .foregroundColor(.black)
+                        .font(.custom("Chalkduster", size: 40))
+                } else{
+                    Text(gameModel.textNo)
+                        .foregroundColor(.black)
+                        .font(.custom("Chalkduster", size: 40))
+                }
+
                 SpriteView(scene: scene)
-
             }
-        }.navigationViewStyle(.stack)
-
+        }
+        .navigationViewStyle(.stack)
+        .navigationBarBackButtonHidden()
+        .ignoresSafeArea()
+        .onAppear {
+            scene.gameModel = gameModel
+        }
     }
+
+
 }
+
+                    

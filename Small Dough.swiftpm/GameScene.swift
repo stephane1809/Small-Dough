@@ -9,12 +9,28 @@ import Foundation
 import SpriteKit
 
 class GameScene: SKScene, ObservableObject {
+    internal override init() {
+        super.init(size: .zero)
+        size = CGSize(
+            width: UIScreen.main.bounds.width,
+            height: UIScreen.main.bounds.height
+        )
+        scaleMode = .fill
+        backgroundColor = .white
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
 
     var pieceMoved: SKSpriteNode?
     var informationNode: InformationNode?
-    var gameModel = GameModel.shared
+
+    var gameModel: GameModel! = nil
 
     override func didMove(to view: SKView) {
+        print(#function)
         creatMassa(posicao: CGPoint(x: frame.midX, y: frame.midY), imageNamed: "massa", num: 8)
         creatButtonMultiplie(imageNamed: "multiply")
         creatButtonDivide(imageNamed: "divide")
@@ -34,7 +50,11 @@ class GameScene: SKScene, ObservableObject {
         for touch in touches {
             let location = touch.location(in: self)
 
-            let touchedNode = self.atPoint(location)
+            var touchedNode = self.atPoint(location)
+
+            if touchedNode.name == "label" {
+                touchedNode = touchedNode.parent!
+            }
 
             guard let node = touchedNode as? InformationNode else {
 
@@ -143,6 +163,7 @@ class GameScene: SKScene, ObservableObject {
 
                 if node.num == gameModel.valueCorrect {
                     creatPao(posicaoX: touchedNode.position.x, posicaoY: touchedNode.position.y)
+                    gameModel.win.toggle()
                 } else {
                     
                     creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y), imageNamed: "massa2", num: node.num)
@@ -156,6 +177,7 @@ class GameScene: SKScene, ObservableObject {
                 if node.num == gameModel.valueCorrect {
                     touchedNode.removeFromParent()
                     creatPao(posicaoX: touchedNode.position.x, posicaoY: touchedNode.position.y)
+                    gameModel.win.toggle()
                 } else {
                     creatMassa(posicao: CGPoint(
                         x: touchedNode.position.x,
@@ -169,6 +191,7 @@ class GameScene: SKScene, ObservableObject {
 
                 if node.num == gameModel.valueCorrect {
                     creatPao(posicaoX: touchedNode.position.x, posicaoY: touchedNode.position.y)
+                    gameModel.win.toggle()
                 } else {
                     creatMassa(posicao: CGPoint(
                         x: touchedNode.position.x,
@@ -182,6 +205,7 @@ class GameScene: SKScene, ObservableObject {
 
                 if node.num == gameModel.valueCorrect {
                     creatPao(posicaoX: touchedNode.position.x, posicaoY: touchedNode.position.y)
+                    gameModel.win.toggle()
                 } else {
                     creatMassa(posicao: CGPoint(
                         x: touchedNode.position.x,
@@ -217,25 +241,27 @@ class GameScene: SKScene, ObservableObject {
                 
                 if value == gameModel.valueCorrect {
                     creatPao(posicaoX: massa.position.x, posicaoY: massa.position.y)
+                    gameModel.win.toggle()
 
                 } else {
                     creatMassa(posicao: massa.position, imageNamed: "massa", num: value)
                 }
+            
             }
         }
         pieceMoved = nil
     }
 
-    static func makeFullscreenScene() -> GameScene {
-        let scene = GameScene()
-        scene.size = CGSize(
-            width: UIScreen.main.bounds.width,
-            height: UIScreen.main.bounds.height
-        )
-        scene.scaleMode = .fill
-        scene.backgroundColor = .white
-        return scene
-    }
+//    static func makeFullscreenScene(model: GameModel) -> GameScene {
+//        let scene = GameScene(gameModel: model)
+//        scene.size = CGSize(
+//            width: UIScreen.main.bounds.width,
+//            height: UIScreen.main.bounds.height
+//        )
+//        scene.scaleMode = .fill
+//        scene.backgroundColor = .white
+//        return scene
+//    }
 
     func creatMassa(posicao: CGPoint, imageNamed: String, num: Int) {
 
@@ -247,11 +273,13 @@ class GameScene: SKScene, ObservableObject {
         massa.name = "massa"
 
         let scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.name = "label"
         scoreLabel.fontSize = 60
         scoreLabel.text = String(massa.num)
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabel.position = CGPoint(x: 18, y: -12)
         scoreLabel.fontColor = UIColor.black
+        scoreLabel.isUserInteractionEnabled = false
         massa.addChild(scoreLabel)
 
         self.addChild(massa)
