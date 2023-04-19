@@ -272,6 +272,7 @@ class GameScene: SKScene, ObservableObject {
 
         massa.num = num
 
+
         massa.position = posicao
         massa.name = "massa"
 
@@ -285,7 +286,6 @@ class GameScene: SKScene, ObservableObject {
         scoreLabel.isUserInteractionEnabled = false
         scoreLabel.isUserInteractionEnabled = false
         massa.addChild(scoreLabel)
-
         self.addChild(massa)
     }
 
