@@ -9,6 +9,7 @@ import Foundation
 import SpriteKit
 
 class GameScene: SKScene, ObservableObject {
+
     var pieceMoved: SKSpriteNode?
     var informationNode: InformationNode?
     var gameModel = GameModel.shared
@@ -171,7 +172,7 @@ class GameScene: SKScene, ObservableObject {
                     y: touchedNode.position.y), imageNamed: "massa", num: node.num)
             }
 
-            if node.num == 7 {
+            if node.num == gameModel.valueCorrect {
                 creatPao(posicao: touchedNode.position, imageNamed: "pao")
             }
 
@@ -187,22 +188,27 @@ class GameScene: SKScene, ObservableObject {
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
+
+
         if let piece = pieceMoved as? InformationNode{
 
             let otherChildren = children.filter({ $0 != piece})
             let massList = otherChildren.compactMap{ $0 as? InformationNode }
 
             if gameModel.division == true || gameModel.sum == true || gameModel.subtract == true || gameModel.multiplication == true{
-                print("nao entrou")
+
             } else if let massa = massList.first(where: { $0.contactFrame.intersects(piece.contactFrame) }) {
                 massa.removeFromParent()
                 piece.removeFromParent()
-                creatMassa(posicao: massa.position, imageNamed: "massa", num: massa.num + piece.num)
-                print(massa.num)
-                print(massa.num)
-//                print("massa proxima", massa)
-            }
+                var value = massa.num + piece.num
+                var massa1 = creatMassa(posicao: massa.position, imageNamed: "massa", num: value)
 
+                if value == gameModel.valueCorrect {
+                    creatPao(posicao: massa.position, imageNamed: "pao")
+                } else {
+                    return (massa1)
+                }
+            }
         }
         pieceMoved = nil
     }
@@ -240,7 +246,7 @@ class GameScene: SKScene, ObservableObject {
 
     func creatPao(posicao: CGPoint, imageNamed: String) {
 
-        let pao = InformationNode(imageNamed: imageNamed)
+        let pao = SKSpriteNode(imageNamed: imageNamed)
 
         pao.position = posicao
         pao.name = "pao"
@@ -255,7 +261,8 @@ class GameScene: SKScene, ObservableObject {
         let multiply = SKSpriteNode(imageNamed: imageNamed)
 
         multiply.name = "multiply"
-        multiply.position = CGPoint(x: frame.midX - 400, y: frame.midY - 380)
+        multiply.size = CGSize(width: 160, height: 160)
+        multiply.position = CGPoint(x: frame.maxX * 0.2, y: frame.maxY * 0.15)
 
         self.addChild(multiply)
     }
@@ -264,7 +271,8 @@ class GameScene: SKScene, ObservableObject {
         let divide = SKSpriteNode(imageNamed: imageNamed)
 
         divide.name = "divide"
-        divide.position = CGPoint(x: frame.midX - 135, y: frame.midY - 380)
+        divide.size = CGSize(width: 160, height: 160)
+        divide.position = CGPoint(x: frame.maxX * 0.4, y: frame.maxY * 0.15)
 
         self.addChild(divide)
     }
@@ -273,7 +281,8 @@ class GameScene: SKScene, ObservableObject {
         let sum = SKSpriteNode(imageNamed: imageNamed)
 
         sum.name = "sum"
-        sum.position = CGPoint(x: frame.midX + 135, y: frame.midY - 380)
+        sum.size = CGSize(width: 160, height: 160)
+        sum.position = CGPoint(x: frame.maxX * 0.6, y: frame.maxY * 0.15)
 
         self.addChild(sum)
     }
@@ -282,7 +291,8 @@ class GameScene: SKScene, ObservableObject {
         let subtract = SKSpriteNode(imageNamed: imageNamed)
 
         subtract.name = "subtract"
-        subtract.position = CGPoint(x: frame.midX + 400, y: frame.midY - 380)
+        subtract.size = CGSize(width: 160, height: 160)
+        subtract.position = CGPoint(x: frame.maxX * 0.8, y: frame.maxY * 0.15)
 
         self.addChild(subtract)
     }
