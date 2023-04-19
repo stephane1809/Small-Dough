@@ -3,11 +3,23 @@ import SpriteKit
 
 struct ContentView: View {
 
-    @State var scene: GameScene = .makeFullscreenScene()
-
     var body: some View {
-        VStack {
-            SpriteView(scene: scene)
+        NavigationView{
+            VStack(alignment: .center, spacing: 20) {
+                Text("oi")
+                NavigationLink(destination: GameView(), label: {
+                    ZStack {
+                                     Rectangle()
+                                         .frame(width: 200, height: 50)
+                                         .foregroundColor(.blue)
+                                         .cornerRadius(10)
+                                     Text("Get Started")
+                                         .font(.title)
+
+                                 }
+                })
+            }
         }
     }
+
 }
