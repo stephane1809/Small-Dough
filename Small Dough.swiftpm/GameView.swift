@@ -16,7 +16,7 @@ struct GameView: View {
         NavigationView {
             VStack {
                 Text("""
-                Hello earthling! We need a dough of value \(String(gameModel.valueCorrect[0]))
+                Hello earthling! We need a dough of value \(String(gameModel.valueCorrect))
                 """ )
     //                .font(.largeTitle)
     //                .fontWeight(.heavy)

@@ -141,32 +141,46 @@ class GameScene: SKScene, ObservableObject {
 
                 touchedNode.removeFromParent()
 
-                creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y), imageNamed: "massa2", num: node.num)
-
-                creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y + 200), imageNamed: "massa2", num: node.num)
+                if node.num == gameModel.valueCorrect {
+                    creatPao(posicaoX: touchedNode.position.x, posicaoY: touchedNode.position.y)
+                } else {
+                    
+                    creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y), imageNamed: "massa2", num: node.num)
+                    
+                    creatMassa(posicao: CGPoint(x: touchedNode.position.x, y: touchedNode.position.y + 200), imageNamed: "massa2", num: node.num)
+                }
 
             }
 
             if touchedNode.name == "massa" && gameModel.multiplication == true{
-
-                creatMassa(posicao: CGPoint(
-                    x: touchedNode.position.x,
-                    y: touchedNode.position.y + 200), imageNamed: "massa", num: node.num)
+                if node.num == gameModel.valueCorrect {
+                    touchedNode.removeFromParent()
+                    creatPao(posicaoX: touchedNode.position.x, posicaoY: touchedNode.position.y)
+                } else {
+                    creatMassa(posicao: CGPoint(
+                        x: touchedNode.position.x,
+                        y: touchedNode.position.y + 200), imageNamed: "massa", num: node.num)
+                }
             }
 
             if touchedNode.name == "massa" && gameModel.sum == true{
                 node.num = node.num + 1
                 node.removeFromParent()
 
-                creatMassa(posicao: CGPoint(
-                    x: touchedNode.position.x,
-                    y: touchedNode.position.y), imageNamed: "massa", num: node.num)
+                if node.num == gameModel.valueCorrect {
+                    creatPao(posicaoX: touchedNode.position.x, posicaoY: touchedNode.position.y)
+                } else {
+                    creatMassa(posicao: CGPoint(
+                        x: touchedNode.position.x,
+                        y: touchedNode.position.y), imageNamed: "massa", num: node.num)
+                }
             }
 
             if touchedNode.name == "massa" && gameModel.subtract == true{
                 node.num = node.num - 1
                 node.removeFromParent()
-                if node.num == gameModel.valueCorrect[0] {
+
+                if node.num == gameModel.valueCorrect {
                     creatPao(posicaoX: touchedNode.position.x, posicaoY: touchedNode.position.y)
                 } else {
                     creatMassa(posicao: CGPoint(
@@ -201,7 +215,7 @@ class GameScene: SKScene, ObservableObject {
                 piece.removeFromParent()
                 var value = massa.num + piece.num
                 
-                if value == gameModel.valueCorrect[0] {
+                if value == gameModel.valueCorrect {
                     creatPao(posicaoX: massa.position.x, posicaoY: massa.position.y)
 
                 } else {
