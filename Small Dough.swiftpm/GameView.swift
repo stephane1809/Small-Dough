@@ -16,16 +16,16 @@ struct GameView: View {
         NavigationView {
             VStack {
                 Text("""
-                Hello earthling, we need a dough of value \(String(gameModel.valueCorrect))
+                Hello earthling! We need a dough of value \(String(gameModel.valueCorrect[0]))
                 """ )
     //                .font(.largeTitle)
     //                .fontWeight(.heavy)
                     .foregroundColor(.black)
-                    .font(.system(size: 60, weight: .light, design: .default))
+                    .font(.custom("Chalkduster", size: 40))
                 SpriteView(scene: scene)
 
             }
-        }
+        }.navigationViewStyle(.stack)
 
     }
 }

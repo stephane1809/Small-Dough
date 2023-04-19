@@ -166,14 +166,13 @@ class GameScene: SKScene, ObservableObject {
             if touchedNode.name == "massa" && gameModel.subtract == true{
                 node.num = node.num - 1
                 node.removeFromParent()
-
-                creatMassa(posicao: CGPoint(
-                    x: touchedNode.position.x,
-                    y: touchedNode.position.y), imageNamed: "massa", num: node.num)
-            }
-
-            if node.num == gameModel.valueCorrect {
-                creatPao(posicao: touchedNode.position, imageNamed: "pao")
+                if node.num == gameModel.valueCorrect[0] {
+                    creatPao(posicaoX: touchedNode.position.x, posicaoY: touchedNode.position.y)
+                } else {
+                    creatMassa(posicao: CGPoint(
+                        x: touchedNode.position.x,
+                        y: touchedNode.position.y), imageNamed: "massa", num: node.num)
+                }
             }
 
         }
@@ -201,12 +200,12 @@ class GameScene: SKScene, ObservableObject {
                 massa.removeFromParent()
                 piece.removeFromParent()
                 var value = massa.num + piece.num
-                var massa1 = creatMassa(posicao: massa.position, imageNamed: "massa", num: value)
+                
+                if value == gameModel.valueCorrect[0] {
+                    creatPao(posicaoX: massa.position.x, posicaoY: massa.position.y)
 
-                if value == gameModel.valueCorrect {
-                    creatPao(posicao: massa.position, imageNamed: "pao")
                 } else {
-                    return (massa1)
+                    creatMassa(posicao: massa.position, imageNamed: "massa", num: value)
                 }
             }
         }
@@ -234,25 +233,31 @@ class GameScene: SKScene, ObservableObject {
         massa.name = "massa"
 
         let scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.fontSize = 60
         scoreLabel.text = String(massa.num)
         scoreLabel.horizontalAlignmentMode = .right
-        scoreLabel.position = CGPoint(x: 0, y: 0)
+        scoreLabel.position = CGPoint(x: 18, y: -12)
         scoreLabel.fontColor = UIColor.black
         massa.addChild(scoreLabel)
 
         self.addChild(massa)
-
     }
 
-    func creatPao(posicao: CGPoint, imageNamed: String) {
+    func creatPao(posicaoX: CGFloat, posicaoY: CGFloat) {
 
-        let pao = SKSpriteNode(imageNamed: imageNamed)
+        let textures: [SKTexture] = getTextures(with: "quente", textureAtlasName: "pao")
 
-        pao.position = posicao
-        pao.name = "pao"
+        let node = SKSpriteNode(texture: textures[0])
+        node.position.x = posicaoX
+        node.position.y = posicaoY + 67
 
-        self.addChild(pao)
+        node.scale(to: CGSize(width: 300, height: 300))
 
+        let action = SKAction.animate(with: textures, timePerFrame: 1/TimeInterval(textures.count), resize: true, restore: true)
+
+        node.run(SKAction.repeatForever(action))
+        
+        self.addChild(node)
     }
 
 

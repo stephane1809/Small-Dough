@@ -22,7 +22,7 @@ class GameModel: ObservableObject {
     @Published var subtract: Bool = false
     @Published var buttonPress: Bool = false
     @Published var gameWin: Bool = false
-    @Published var valueCorrect: Int = 23
+    @Published var valueCorrect: [Int] = [7, 12, 17, 23]
 
     static let shared = GameModel()
 }

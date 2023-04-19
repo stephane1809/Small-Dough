@@ -3,10 +3,23 @@ import SpriteKit
 
 struct ContentView: View {
 
+    @State var scene: InitialScene = .makeFullscreenScene()
+
     var body: some View {
         NavigationView{
             VStack(alignment: .center, spacing: 20) {
-                Text("oi")
+                Text("""
+My name is Doo,
+Welcome to my bakery Alien Dough!
+
+""")
+                    .font(.custom("Chalkduster", size: 40))
+                SpriteView(scene: scene)
+                Text("""
+Let's make delicious breads human?
+""")
+                .font(.custom("Chalkduster", size: 40))
+
                 NavigationLink(destination: GameView(), label: {
                     ZStack {
                                      Rectangle()
@@ -14,12 +27,13 @@ struct ContentView: View {
                                          .foregroundColor(.blue)
                                          .cornerRadius(10)
                                      Text("Get Started")
-                                         .font(.title)
-
+                            .font(.custom("Chalkduster", size: 20))
+                            .font(.body)
                                  }
                 })
-            }
-        }
-    }
 
+
+            }
+        }.navigationViewStyle(.stack)
+    }
 }
