@@ -53,10 +53,13 @@ class GameScene: SKScene, ObservableObject {
             var touchedNode = self.atPoint(location)
 
             if touchedNode.name == "label" {
+                print("tocou na label")
                 touchedNode = touchedNode.parent!
+
             }
 
             guard let node = touchedNode as? InformationNode else {
+
 
                 if touchedNode.name == "multiply" {
                     if gameModel.division == true || gameModel.sum == true || gameModel.subtract == true{
@@ -279,6 +282,7 @@ class GameScene: SKScene, ObservableObject {
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabel.position = CGPoint(x: 18, y: -12)
         scoreLabel.fontColor = UIColor.black
+        scoreLabel.isUserInteractionEnabled = false
         scoreLabel.isUserInteractionEnabled = false
         massa.addChild(scoreLabel)
 

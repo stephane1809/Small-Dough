@@ -13,15 +13,17 @@ struct OnboardingContent: View {
 @State private var currentTab = 0
 
     var body: some View {
+        NavigationView{
+            TabView(selection: $currentTab,
+                    content: {
+                ForEach(OnboardingData.list) {
+                    viewData in OnboardingView(data: viewData, currentTabIndex: $currentTab)
+                        .tag(viewData.id)
+                }
+            })
+            .tabViewStyle(PageTabViewStyle())
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        }.navigationViewStyle(.stack)
+        }
 
-                TabView(selection: $currentTab,
-                        content: {
-                    ForEach(OnboardingData.list) {
-                        viewData in OnboardingView(data: viewData, currentTabIndex: $currentTab)
-                            .tag(viewData.id)
-                    }
-                })
-                .tabViewStyle(PageTabViewStyle())
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-            }
 }

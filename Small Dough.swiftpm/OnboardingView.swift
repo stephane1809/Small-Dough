@@ -11,6 +11,7 @@ import SwiftUI
 struct OnboardingView: View {
     var data: OnboardingData
     @Binding var currentTabIndex: Int
+    @State var mudar: Bool = false
 
     var body: some View {
         VStack(spacing: 20) {
@@ -42,7 +43,8 @@ struct OnboardingView: View {
                      currentTabIndex += 1
                  } else {
                      // Ir pra tela
-                    
+                     mudar = true
+
                  }
              }, label: {
                  Text("Get Started")
@@ -67,6 +69,25 @@ struct OnboardingView: View {
              Spacer()
             Spacer()
          }
+        .navigate(to: ContentView(), when: $mudar)
     }
 
+}
+
+extension View {
+    /// Navigate to a new view.
+    /// - Parameters:
+    ///   - view: View to navigate to.
+    ///   - binding: Active binding
+    func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
+        ZStack {
+            self
+            NavigationLink(
+                destination: view,
+                isActive: binding
+            ) {
+                EmptyView()
+            }
+        }
+    }
 }
