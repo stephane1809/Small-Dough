@@ -278,10 +278,10 @@ class GameScene: SKScene, ObservableObject {
 
         let scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
         scoreLabel.name = "label"
-        scoreLabel.fontSize = 60
+        scoreLabel.fontSize = 55
         scoreLabel.text = String(massa.num)
         scoreLabel.horizontalAlignmentMode = .right
-        scoreLabel.position = CGPoint(x: 18, y: -12)
+        scoreLabel.position = CGPoint(x: 18, y: -93)
         scoreLabel.fontColor = UIColor.black
         scoreLabel.isUserInteractionEnabled = false
         scoreLabel.isUserInteractionEnabled = false

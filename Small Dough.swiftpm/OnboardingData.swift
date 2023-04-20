@@ -15,11 +15,10 @@ struct OnboardingData: Hashable, Identifiable {
     let secondaryText: String
 
     static let list: [OnboardingData] = [
-            OnboardingData(id: 0, objectImage: "et_talk_0000", primaryText: "Hi, my name is Doo!", secondaryText: "Vamos fazer pãezinhos para minha padaria Alien Dough usando operações matemáticas básicas?"),
-            OnboardingData(id: 1, objectImage: "select_operation", primaryText: "Escolha a operação matemática", secondaryText: "Clique na massa para realizar a operação e não esqueça de desativá-la depois"),
-            OnboardingData(id: 2, objectImage: "arrastar", primaryText: "Arraste as massas para somar", secondaryText: "Coloque as massas em contado para somar. Você só pode arrastar as massas se nenhuma operação matemática tiver ativada"),
-            OnboardingData(id: 3, objectImage: "conseguiu", primaryText: "Arraste as massas para somar", secondaryText: "Coloque as massas em contado para somar. Você só pode arrastar as massas se nenhuma operação matemática tiver ativada")
+            OnboardingData(id: 0, objectImage: "et_talk_0000", primaryText: "Hi, my name is Doo!", secondaryText: "Let's make buns for my Alien Dough bakery using basic math operations?"),
+            OnboardingData(id: 1, objectImage: "select_operation", primaryText: "Choose the math operation", secondaryText: "Click on the mass to carry out the operation and don't forget to deactivate it afterwards"),
+            OnboardingData(id: 2, objectImage: "arrastar", primaryText: "Drag the masses to add", secondaryText: "Put the masses in count to add. You can only drag masses if no math operation is enabled"),
+            OnboardingData(id: 3, objectImage: "conseguiu", primaryText: "Arrive at the requested amount", secondaryText: "Put the masses in count to add. You can only drag masses if no math operation is enabled")
         ]
-
 
 }
